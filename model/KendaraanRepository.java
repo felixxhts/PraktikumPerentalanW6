@@ -1,25 +1,12 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class KendaraanRepository {
-    private final List<Kendaraan> data = new ArrayList<>();
+public interface KendaraanRepository {
+    void tambah(Kendaraan kendaraan);
 
-    public void tambahKendaraan(Kendaraan kendaraan) {
-        data.add(kendaraan);
-    }
+    List<Kendaraan> semua();
 
-    public List<Kendaraan> semua() {
-        return new ArrayList<>(data);
-    }
+    Kendaraan cariByPlat(String platNomor);
 
-    public Kendaraan cariByPlat(String platNomor) {
-        for (Kendaraan kendaraan : data) {
-            if (kendaraan.getPlatNomor().equals(platNomor)) {
-                return kendaraan;
-            }
-        }
-        return null;
-    }
 }
